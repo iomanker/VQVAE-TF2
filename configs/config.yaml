@@ -1,0 +1,31 @@
+# logger options
+image_save_iter: 20000        # How often do you want to save output images during training
+image_display_iter: 20000     # How often do you want to display output images during training
+
+# optimization options
+max_iter: 100000              # maximum number of training iterations
+lr_gen: 0.0001                # learning rate for the generator
+lr_dis: 0.0001                # learning rate for the discriminator
+r_w: 0.1                      # weight of image reconstruction loss
+vq_w: 1
+
+# model options
+gen:
+  nf: 64                      # number of base filters in the generator
+  n_res_blks: 2               # number of residual blocks in content encoder/decoder
+  latent_dim: 64              # dimension of the latent code for the class model
+  n_downs_content: 3          # number of downsampling layers in content encoder
+  vqvae:
+    num_classes: 119
+    dim_class: 256
+    commitment_cost: 0.5
+
+# data options
+batch_size: 64
+new_size: 140                 # first resize the shortest image side to this size
+crop_image_height: 128        # random crop image of this height
+crop_image_width: 128         # random crop image of this width
+data_folder_train: ./datasets/images/
+data_list_train: ./datasets/images_list_train.txt
+data_folder_test: ./datasets/images/
+data_list_test: ./datasets/images_list_test.txt
